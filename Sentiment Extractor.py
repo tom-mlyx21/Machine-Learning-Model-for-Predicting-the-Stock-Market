@@ -37,7 +37,7 @@ for y in first_data.index:
 """
 # Since the original dataset is too large, I will only use the first 50 entries to test the code
 counter = 0
-for y in range(50):
+for y in range(10):
     for x in first_data.columns:
         if x != 'Date' and x != 'Label':
             target = first_data[x][y]
@@ -54,3 +54,19 @@ for y in range(50):
     counter += 1
     print(counter)
 print(sentiment_data.iloc[2:50])
+
+
+# After the Process of Sentiment Extraction, the data is ready to be used for training
+# A new dataset will be built using new column headings
+# Source, Length, Word Count, Positive, Negative, Neutral, Compound
+
+clean_data = pd.DataFrame(columns=['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound', 'Label'])
+for x in sentiment_data.columns:
+    if x != 'Date' and x != 'Label':
+        for y in range(5):
+            hold = sentiment_data[x][y]
+            if type(hold) == list:
+                clean_data = clean_data.append({'Source': x, 'Length': hold[0], 'Word Count': hold[1], 'Positive': hold[2], 'Negative': hold[3], 'Neutral': hold[4], 'Compound': hold[5], 'Label': sentiment_data['Label'][y]}, ignore_index=True)
+print(clean_data)
+
+print("Finished without failure")
