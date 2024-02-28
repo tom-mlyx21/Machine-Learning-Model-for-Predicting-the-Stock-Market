@@ -2,6 +2,9 @@
 import pandas as pd
 import numpy as np
 import nltk
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
@@ -37,7 +40,7 @@ for y in first_data.index:
 """
 # Since the original dataset is too large, I will only use the first 50 entries to test the code
 counter = 0
-for y in range(10):
+for y in range(50):
     for x in first_data.columns:
         if x != 'Date' and x != 'Label':
             target = first_data[x][y]
@@ -53,13 +56,12 @@ for y in range(10):
                 sentiment_data[x][y] = hold
     counter += 1
     print(counter)
-#print(sentiment_data.iloc[2:50])
+print(sentiment_data.iloc[2:50])
 
 
 # After the Process of Sentiment Extraction, the data is ready to be used for training
 # A new dataset will be built using new column headings
 # Source, Length, Word Count, Positive, Negative, Neutral, Compound
-
 
 clean_data = pd.DataFrame(columns=['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound', 'Label'])
 for x in sentiment_data.columns:
@@ -67,8 +69,17 @@ for x in sentiment_data.columns:
         for y in range(5):
             hold = sentiment_data[x][y]
             if type(hold) == list:
-                set = {'Source': x, 'Length': hold[0], 'Word Count': hold[1], 'Positive': hold[2], 'Negative': hold[3], 'Neutral': hold[4], 'Compound': hold[5], 'Label': sentiment_data['Label'][y]}
+                set = {'Source': x[3:], 'Length': hold[0], 'Word Count': hold[1], 'Positive': hold[2], 'Negative': hold[3], 'Neutral': hold[4], 'Compound': hold[5], 'Label': sentiment_data['Label'][y]}
                 clean_data.loc[len(clean_data)] = set
 print(clean_data.head())
+
+# Time For Training
+X = clean_data[['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound']]
+Y = clean_data['Label']
+Xtrain, Xtest, Ytrain, Ytest = train_test_split(X,Y, test_size=.3, random_state=0)
+clf = GaussianNB()
+clf.fit(Xtrain,Ytrain)
+ypred = clf.predict(Xtest)
+print(classification_report(Ytest,ypred))
 
 print("Finished without failure")
