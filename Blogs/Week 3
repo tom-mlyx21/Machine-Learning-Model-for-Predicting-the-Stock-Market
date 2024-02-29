@@ -1,0 +1,13 @@
+Project Pivot and direction change
+== Weekly Meeting ==
+During the weekly meeting it was discussed that the approach of programming both a sentiment extraction learner, and
+classifier was both above the 20 credits.
+The better agreed upon approach was to change the direction of the project, utilise the available python libraries
+and build a fully functioning program, heavily justifying the choices for each library used
+
+== Program Progress ==
+Following the meeting, through the use of the nltk library, and the "Vader Lexicon" module, a sentiment extractor
+was constructed. This provided a solid basis for converting the vast amount of news headlines to machine digestible
+features. Features include Source, word count, sentence length, positive, negative, neutral, and compound.
+These features have been selected on their intuitive relevance to the stock market.
+The final product was an effective text to data converter that is capable of converting the entire pandas dataframe

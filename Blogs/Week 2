@@ -1,0 +1,10 @@
+Full Lit review and First snippets of code
+== Work ==
+- Git Repository built for code documentation and a link to the project supervisor
+XgBoost:
+The first machine learning application to be reviewed, with the first partial sections of code, programmed
+After exploring the possibilities of the gradient boosting framework, it was decided that there are better alternatives
+to which machine learning assets can or should be used.
+
+- XgBoost was later to be replaced by Sklearn.
+

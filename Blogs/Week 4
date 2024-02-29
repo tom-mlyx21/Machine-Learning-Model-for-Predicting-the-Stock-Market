@@ -1,0 +1,18 @@
+First Stock Market Predictions
+== Libraries ==
+The first change to the week was the addition of a new library, which was the Sklearn python learner.
+https://scikit-learn.org/stable/modules/naive_bayes.html
+This library produced by scikit provides an excellent automatic classifier.
+
+== results ==
+The first set of results produced the following set of positive results
+             precision    recall  f1-score   support
+
+           0       0.76      0.57      0.65        23
+           1       0.52      0.73      0.61        15
+
+    accuracy                           0.63        38
+   macro avg       0.64      0.65      0.63        38
+weighted avg       0.67      0.63      0.63        38
+
+To Note: This set was trained based on 50 elements

@@ -1,0 +1,14 @@
+Project Outline and Partial Lit review:
+Most of the week taken up by putting together a project outline.
+== Outline ==
+Following a meeting with the project supervisor, the project in principle is to use a naive bayesian model to extract
+sentiment from a dataset, training a secondary model in order to predict the movements of our target feature, which in
+reality is the positive or negative trend of the stock market.
+During the project meeting, the Kaggle dataset was decided upon :
+https://www.kaggle.com/datasets/aaron7sun/stocknews
+
+
+== Feedback ==
+The finished project outline was too brief, failing to define specific objectives and tools.
+The features were undefined, with no indication to which metrics were to be used.
+Work on detailing the specifics
