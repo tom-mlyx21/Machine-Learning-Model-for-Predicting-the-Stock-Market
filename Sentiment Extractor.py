@@ -58,11 +58,10 @@ for y in range(50):
                 text_bigrams = [ngrams(sent, 2) for sent in target]
                 text_trigrams = [ngrams(sent, 3) for sent in target]
                 count = NgramCounter(text_unigrams+text_bigrams+text_trigrams)
-                print("Count is:", count.N())
                 for i in scores.values():
                     hold.append(i)
                 sentiment_data[x][y] = hold
-                hold.append(count)
+                hold.append(count.N())
     counter += 1
     print(counter)
 print(sentiment_data.iloc[2:50])
