@@ -3,11 +3,15 @@ import pandas as pd
 import numpy as np
 import nltk
 import string
+from nltk import word_tokenize
 from nltk.lm import NgramCounter
 from nltk.util import ngrams
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+'''nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')'''
 
 
 pd.options.mode.chained_assignment = None  # default='warn'
@@ -22,7 +26,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 # Use Pandas to iterate over the data entries
 # Build a new pandas dataframe with the sentiment scores + length
 sentiment_data = first_data.copy()
-print(sentiment_data.iloc[0][6])
+
 """
 counter = 0
 for y in first_data.index:
@@ -61,14 +65,10 @@ for y in range(50):
                 for t in sent:
                     if len(t) == 1 and t != "'" and t != '-' and t != '"':
                         uni += 1
-                        print("Unigram: ", t)
                     if len(t) == 2 and t != "--":
                         bi += 1
-                        print("Bigram: ", t)
                     if len(t) == 3:
                         tri += 1
-                        print("Trigram: ", t)
-                print(uni, bi, tri)
                 # punctuation count
                 punc = 0
                 for c in target:
@@ -81,6 +81,8 @@ for y in range(50):
                 hold.append(bi)
                 hold.append(tri)
                 hold.append(punc)
+                # include the entity count in array
+                hold.append(len(nltk.word_tokenize(target)))
     counter += 1
 print(hold)
 print(sentiment_data.iloc[2:50])
@@ -96,12 +98,12 @@ for x in sentiment_data.columns:
         for y in range(5):
             hold = sentiment_data[x][y]
             if type(hold) == list:
-                set = {'Source': x[3:], 'Length': hold[0], 'Word Count': hold[1], 'Positive': hold[2], 'Negative': hold[3], 'Neutral': hold[4], 'Compound': hold[5], 'Label': sentiment_data['Label'][y], 'Avg WordLen': int(hold[0]/hold[1]), 'UniGrams': int(hold[6]), 'BiGrams': int(hold[7]), 'TriGrams': int(hold[8]), 'Punctuation': int(hold[9])}
+                set = {'Source': x[3:], 'Length': hold[0], 'Word Count': hold[1], 'Positive': hold[2], 'Negative': hold[3], 'Neutral': hold[4], 'Compound': hold[5], 'Label': sentiment_data['Label'][y], 'Avg WordLen': int(hold[0]/hold[1]), 'UniGrams': int(hold[6]), 'BiGrams': int(hold[7]), 'TriGrams': int(hold[8]), 'Punctuation': int(hold[9]), 'Entities': int(hold[10])}
                 clean_data.loc[len(clean_data)] = set
 print(clean_data.head())
 
 # Time For Training
-X = clean_data[['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound', 'Avg WordLen', 'UniGrams', 'BiGrams', 'TriGrams', 'Punctuation']]
+X = clean_data[['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound', 'Avg WordLen', 'UniGrams', 'BiGrams', 'TriGrams', 'Punctuation', 'Entities']]
 Y = clean_data['Label']
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(X,Y, test_size=.3, random_state=0)
 clf = GaussianNB()
