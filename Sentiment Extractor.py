@@ -27,28 +27,10 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 # Build a new pandas dataframe with the sentiment scores + length
 sentiment_data = first_data.copy()
 
-"""
-counter = 0
-for y in first_data.index:
-    for x in first_data.columns:
-        if x != 'Date' and x != 'Label':
-            target = first_data[x][y]
-            hold = []
-            # Can't encode floats so only strings accepted (Loss of 1 in 250 ish entries)
-            if type(target) == str:
-                scores = SentimentIntensityAnalyzer().polarity_scores(target)
-                # Migrate the vader object to an array, to better suit pd
-                hold.append(len(target))
-                hold.append(target.count(' ')+1)
-                for i in scores.values():
-                    hold.append(i)
-                sentiment_data[x][y] = hold
-    counter+=1
-    print(counter)
-"""
 # Since the original dataset is too large, I will only use the first 50 entries to test the code
 counter = 0
-for y in range(50):
+for y in first_data.index:
+    print("index:",  y)
     for x in first_data.columns:
         if x != 'Date' and x != 'Label':
             target = first_data[x][y]
