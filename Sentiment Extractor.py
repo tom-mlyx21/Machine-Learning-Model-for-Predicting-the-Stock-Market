@@ -6,31 +6,33 @@ import string
 from nltk import word_tokenize
 from nltk.lm import NgramCounter
 from nltk.util import ngrams
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import KFold, cross_val_score
 from sklearn.metrics import classification_report
 '''nltk.download('punkt')
 nltk.download('wordnet')
-nltk.download('omw-1.4')'''
+nltk.download('omw-1.4')
+nltk.download('vader_lexicon')'''
 
 
 pd.options.mode.chained_assignment = None  # default='warn'
 
 # Load the model into pandas
 first_data = pd.read_csv('Combined_News_DJIA.csv')
-
+print(first_data)
 # Using a ready-made sentiment extractor to test against my model
-nltk.download('vader_lexicon')
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
 
 # Use Pandas to iterate over the data entries
 # Build a new pandas dataframe with the sentiment scores + length
 sentiment_data = first_data.copy()
-
 # Since the original dataset is too large, I will only use the first 50 entries to test the code
 counter = 0
+print()
 for y in first_data.index:
-    print("index:",  y)
+    print("index:",  counter)
     for x in first_data.columns:
         if x != 'Date' and x != 'Label':
             target = first_data[x][y]
@@ -89,8 +91,12 @@ X = clean_data[['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutr
 Y = clean_data['Label']
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(X,Y, test_size=.3, random_state=0)
 clf = GaussianNB()
-clf.fit(Xtrain,Ytrain)
+# 70/30 split test
+'''clf.fit(Xtrain,Ytrain)
 Ypred = clf.predict(Xtest)
-print(classification_report(Ytest,Ypred))
-
+print(classification_report(Ytest,Ypred))'''
+# K-Fold validation method
+k_folds = KFold(n_splits=10)
+scores = cross_val_score(clf, X, Y, cv = k_folds)
+print(scores, scores.mean())
 print("Finished without failure")

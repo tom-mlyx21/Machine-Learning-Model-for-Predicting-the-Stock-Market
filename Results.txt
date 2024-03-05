@@ -1,0 +1,14 @@
+              precision    recall  f1-score   support
+           0       0.69      0.48      0.56        23
+           1       0.45      0.67      0.54        15
+    accuracy                           0.55        38
+   macro avg       0.57      0.57      0.55        38
+weighted avg       0.60      0.55      0.55        38
+
+# K-fold cross valiation results (k = 10)
+[0.53846154 0.61538462 0.46153846 0.76923077 0.76923077 0.33333333
+ 0.33333333 0.58333333 0.66666667 0.58333333]
+ 0.5653846153846154
+
+ Both for full data sets.
+ 1988 * 27 * 11 = 590,436 data points the classifier
