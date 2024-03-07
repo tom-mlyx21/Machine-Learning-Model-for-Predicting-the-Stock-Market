@@ -1,18 +1,7 @@
-import xgboost as xgb
 import pandas as pd
-import numpy as np
 import nltk
 import string
-from nltk import word_tokenize
-from nltk.lm import NgramCounter
-from nltk.util import ngrams
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import KFold, cross_val_score
-from sklearn.metrics import classification_report
-from sklearn.svm import SVC
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -93,29 +82,5 @@ for x in sentiment_data.columns:
                 set = {'Source': x[3:], 'Length': hold[0], 'Word Count': hold[1], 'Positive': hold[2], 'Negative': hold[3], 'Neutral': hold[4], 'Compound': hold[5], 'Label': sentiment_data['Label'][y], 'Avg WordLen': int(hold[0]/hold[1]), 'UniGrams': int(hold[6]), 'BiGrams': int(hold[7]), 'TriGrams': int(hold[8]), 'Punctuation': int(hold[9]), 'Entities': int(hold[10])}
                 clean_data.loc[len(clean_data)] = set
 print(clean_data.head())
-
-
-model = input("Enter the model to be used for training (NB, XGB, RF, SVM): ")
-# Time For Training
-X = clean_data[['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound', 'Avg WordLen', 'UniGrams', 'BiGrams', 'TriGrams', 'Punctuation', 'Entities']]
-Y = clean_data['Label']
-Xtrain, Xtest, Ytrain, Ytest = train_test_split(X,Y, test_size=.3, random_state=0)
-if model == 'NB':
-    clf = GaussianNB()
-elif model == 'XGB':
-    clf = xgb.XGBClassifier()
-elif model == 'RF':
-    clf = RandomForestClassifier()
-elif model == 'SVM':
-    clf = SVC(kernel='rbf', C=1, gamma='auto')
-
-k_folds = KFold(n_splits=10)
-scores = cross_val_score(clf, X, Y, cv=k_folds)
-print(scores, scores.mean())
-# 70/30 split test
-'''clf.fit(Xtrain,Ytrain)
-Ypred = clf.predict(Xtest)
-print(classification_report(Ytest,Ypred))'''
-# K-Fold validation method
 
 print("Finished without failure")
