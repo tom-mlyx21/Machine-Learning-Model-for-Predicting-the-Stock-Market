@@ -9,6 +9,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold, cross_val_score
 from sklearn.metrics import classification_report
 from sklearn.svm import SVC
+from sklearn.ensemble import VotingClassifier
+from sklearn.metrics import mean_squared_error, log_loss
 
 # Run on first use on new device
 '''nltk.download('punkt')
@@ -97,7 +99,7 @@ def frameBuilder(boundary):
 
 # Program training section: Choose a training model, returns k-fold validation method results
 def modelTrainer(clean_data):
-    model = input("Enter the model to be used for training (NB, XGB, RF, SVM): ")
+    model = input("Enter the model to be used for training (NB, XGB, RF, SVM, EN): ")
     X = clean_data[['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound', 'Avg WordLen', 'UniGrams', 'BiGrams', 'TriGrams', 'Punctuation', 'Entities']]
     Y = clean_data['Label']
     Xtrain, Xtest, Ytrain, Ytest = train_test_split(X,Y, test_size=.3, random_state=0)
@@ -109,6 +111,19 @@ def modelTrainer(clean_data):
         clf = RandomForestClassifier()
     elif model == 'SVM':
         clf = SVC(kernel='rbf', C=1, gamma='auto')
+    elif model == 'EN':
+        # Ensemble classifier
+        model_1 = GaussianNB()
+        model_2 = xgb.XGBClassifier()
+        model_3 = RandomForestClassifier()
+        model_4 = SVC(kernel='rbf', C=1, gamma='auto')
+        final_model = VotingClassifier(
+            estimators=[('NB', model_1), ('xgb', model_2), ('rf', model_3), ('svm', model_4)], voting='hard')
+        final_model.fit(Xtrain, Ytrain)
+        pred_final = final_model.predict(Xtest)
+        print(mean_squared_error(Ytest, pred_final))
+        print(log_loss(Ytest, pred_final))
+
     if model == 'NB' or model == 'XGB' or model == 'RF' or model == 'SVM':
         clf.fit(Xtrain, Ytrain)
         Ypred = clf.predict(Xtest)
@@ -116,7 +131,8 @@ def modelTrainer(clean_data):
         k_folds = KFold(n_splits=10)
         scores = cross_val_score(clf, X, Y, cv=k_folds)
         print(scores, scores.mean())
-    else:
+
+    elif model != 'EN':
         print("Enter a Valid Model")
         modelTrainer(clean_data)
 
