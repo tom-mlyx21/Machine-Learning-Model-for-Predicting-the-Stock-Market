@@ -2,16 +2,7 @@
 # First set of results will be the 50 entry data set for preliminary results
 # NB, XGB, RF, SVM, as shown in the order below
 
-#NB, Classification scores and Cross Validation scores, 50 then full set
-              precision    recall  f1-score   support
-           0       0.66      0.43      0.52       216
-           1       0.48      0.70      0.57       159
-    accuracy                           0.55       375
-   macro avg       0.57      0.57      0.55       375
-weighted avg       0.58      0.55      0.54       375
-# The score of each fold and then the average at the end
-[0.52  0.64  0.528 0.608 0.576 0.544 0.584 0.608 0.56  0.552] 0.5720000000000001
-
+#NB, Classification scores and Cross Validation scores, 10 sets of full scores, randomised pandas
               precision    recall  f1-score   support
            0       0.45      0.15      0.22      6895
            1       0.54      0.84      0.65      8014
@@ -20,16 +11,12 @@ weighted avg       0.58      0.55      0.54       375
 weighted avg       0.50      0.52      0.45     14909
 [0.53541247 0.53420523 0.53018109 0.53360161 0.52012072 0.53259557
  0.52646408 0.52706782 0.52968404 0.53411149] 0.5303444130267619
+ standard deviation:  0.00448596412805803
+  Variance:  2.012387415822344e-05
+ Confusion Matrix:  [[1021 5874]
+ [1253 6761]]
 
-#XGB, Classification scores and Cross Validation scores, 50 then full set
-              precision    recall  f1-score   support
-           0       1.00      1.00      1.00       216
-           1       1.00      1.00      1.00       159
-    accuracy                           1.00       375
-   macro avg       1.00      1.00      1.00       375
-weighted avg       1.00      1.00      1.00       375
-[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.] 1.0
-
+#XGB, Classification scores and Cross Validation scores, 10 sets of full scores, randomised pandas
               precision    recall  f1-score   support
            0       0.60      0.52      0.55      6895
            1       0.63      0.70      0.66      8014
@@ -38,37 +25,147 @@ weighted avg       1.00      1.00      1.00       375
 weighted avg       0.61      0.62      0.61     14909
 [0.6334004  0.61790744 0.6331992  0.6195171  0.62837022 0.62112676
  0.62105051 0.61984303 0.62608171 0.62809418] 0.6248590557229472
+ standard deviation:  0.005452143359553466
+  Variance:  2.972586721312295e-05
+ Confusion Matrix:  [[3564 3331]
+ [2406 5608]]
 
-#RF, Classification scores and Cross Validation scores, 50 then full set
-              precision    recall  f1-score   support
-           0       0.74      0.76      0.75       216
-           1       0.66      0.64      0.65       159
-    accuracy                           0.71       375
-   macro avg       0.70      0.70      0.70       375
-weighted avg       0.71      0.71      0.71       375
-[0.736 0.76  0.768 0.816 0.72  0.728 0.768 0.784 0.688 0.752] 0.752
-
+#RF, Classification scores and Cross Validation scores, 10 sets of full scores, randomised pandas
               precision    recall  f1-score   support
            0       0.54      0.47      0.50      6895
            1       0.59      0.65      0.62      8014
     accuracy                           0.57     14909
    macro avg       0.56      0.56      0.56     14909
 weighted avg       0.56      0.57      0.56     14909
-[0.57525151 0.57545272 0.57122736 0.55694165 0.55955734 0.55794769
-
-#SVM, Classification scores and Cross Validation scores, 50 then full set
+[0.57484909 0.57102616 0.56619718 0.56438632 0.55613682 0.55251509
+ 0.56711612 0.56248742 0.5737573  0.55443751] 0.5642909013752468
+ standard deviation:  0.007507177600470201
+  Variance:  5.635771552500152e-05
+ Confusion Matrix:  [[3229 3666]
+ [2795 5219]]
               precision    recall  f1-score   support
-           0       0.62      0.80      0.70       216
-           1       0.55      0.33      0.41       159
-    accuracy                           0.60       375
-   macro avg       0.58      0.56      0.56       375
-weighted avg       0.59      0.60      0.58       375
-[0.56  0.696 0.672 0.624 0.664 0.6   0.552 0.624 0.616 0.632] 0.624
+           0       0.53      0.47      0.50      6895
+           1       0.59      0.64      0.61      8014
+    accuracy                           0.56     14909
+   macro avg       0.56      0.56      0.56     14909
+weighted avg       0.56      0.56      0.56     14909
+[0.57726358 0.56981891 0.57283702 0.55472837 0.56136821 0.55533199
+ 0.56973234 0.55846247 0.57999598 0.5602737 ] 0.565981256830579
+ standard deviation:  0.00865982606729032
+  Variance:  7.499258751572093e-05
+ Confusion Matrix:  [[3255 3640]
+ [2857 5157]]
+              precision    recall  f1-score   support
+           0       0.53      0.47      0.50      6895
+           1       0.59      0.65      0.61      8014
+    accuracy                           0.56     14909
+   macro avg       0.56      0.56      0.56     14909
+weighted avg       0.56      0.56      0.56     14909
+[0.57444668 0.57303823 0.57303823 0.55995976 0.5527163  0.54788732
+ 0.57556852 0.56168243 0.5733548  0.55866372] 0.5650355989833143
+ standard deviation:  0.009592922275181734
+  Variance:  9.20241577776779e-05
+ Confusion Matrix:  [[3226 3669]
+ [2838 5176]]
+              precision    recall  f1-score   support
+           0       0.53      0.46      0.49      6895
+           1       0.58      0.64      0.61      8014
+    accuracy                           0.56     14909
+   macro avg       0.55      0.55      0.55     14909
+weighted avg       0.56      0.56      0.56     14909
+[0.58189135 0.57424547 0.57162978 0.56257545 0.56297787 0.55633803
+ 0.56510364 0.55041256 0.57737975 0.55685249] 0.5659406388016164
+ standard deviation:  0.009609079515949307
+  Variance:  9.233440914383655e-05
+ Confusion Matrix:  [[3206 3689]
+ [2881 5133]]
+              precision    recall  f1-score   support
+           0       0.54      0.48      0.51      6895
+           1       0.59      0.65      0.62      8014
+    accuracy                           0.57     14909
+   macro avg       0.57      0.57      0.56     14909
+weighted avg       0.57      0.57      0.57     14909
+[0.57887324 0.56700201 0.56639839 0.56780684 0.56539235 0.55875252
+ 0.56268867 0.55624874 0.57254981 0.56510364] 0.5660816215465464
+ standard deviation:  0.00610517608472255
+  Variance:  3.7273175025468166e-05
+ Confusion Matrix:  [[3300 3595]
+ [2783 5231]]
+              precision    recall  f1-score   support
+           0       0.54      0.47      0.50      6895
+           1       0.59      0.65      0.62      8014
+    accuracy                           0.57     14909
+   macro avg       0.56      0.56      0.56     14909
+weighted avg       0.56      0.57      0.56     14909
+[0.57887324 0.5722334  0.56317907 0.56076459 0.56800805 0.55955734
+ 0.57536728 0.55906621 0.5687261  0.5467901 ] 0.5652565382230998
+ standard deviation:  0.008900734341345596
+  Variance:  7.922307181520883e-05
+ Confusion Matrix:  [[3241 3654]
+ [2798 5216]]
+              precision    recall  f1-score   support
+           0       0.53      0.47      0.50      6895
+           1       0.59      0.65      0.62      8014
+    accuracy                           0.57     14909
+   macro avg       0.56      0.56      0.56     14909
+weighted avg       0.56      0.57      0.56     14909
+[0.5722334  0.56841046 0.57665996 0.5639839  0.56478873 0.55653924
+ 0.56932985 0.5552425  0.56993359 0.55001006] 0.5647131693359999
+ standard deviation:  0.007967067985754082
+  Variance:  6.34741722896276e-05
+ Confusion Matrix:  [[3254 3641]
+ [2834 5180]]
+              precision    recall  f1-score   support
+           0       0.54      0.48      0.50      6895
+           1       0.59      0.65      0.62      8014
+    accuracy                           0.57     14909
+   macro avg       0.56      0.56      0.56     14909
+weighted avg       0.56      0.57      0.56     14909
+[0.57404427 0.56760563 0.57002012 0.56720322 0.55814889 0.55915493
+ 0.57516603 0.56993359 0.57214731 0.55081505] 0.5664239046676922
+ standard deviation:  0.007479682927190545
+  Variance:  5.5945656691305725e-05
+ Confusion Matrix:  [[3276 3619]
+ [2833 5181]]
+              precision    recall  f1-score   support
+           0       0.54      0.48      0.51      6895
+           1       0.59      0.65      0.62      8014
+    accuracy                           0.57     14909
+   macro avg       0.56      0.56      0.56     14909
+weighted avg       0.57      0.57      0.57     14909
+[0.5804829  0.5639839  0.56740443 0.56478873 0.56297787 0.55171026
+ 0.56792111 0.55222379 0.57093983 0.55504126] 0.56374740696139
+ standard deviation:  0.008472410315290462
+  Variance:  7.178173655064022e-05
+ Confusion Matrix:  [[3288 3607]
+ [2821 5193]]
+              precision    recall  f1-score   support
+           0       0.53      0.47      0.50      6895
+           1       0.58      0.64      0.61      8014
+    accuracy                           0.56     14909
+   macro avg       0.56      0.56      0.55     14909
+weighted avg       0.56      0.56      0.56     14909
+
+#SVM, Classification scores and Cross Validation scores, 10 sets of full scores, randomised pandas
+              precision    recall  f1-score   support
+           0       0.62      0.39      0.48      6919
+           1       0.60      0.79      0.68      7990
+    accuracy                           0.61     14909
+   macro avg       0.61      0.59      0.58     14909
+weighted avg       0.61      0.61      0.59     14909
+[0.61448692 0.60020121 0.60945674 0.60885312 0.61871227 0.6221328
+ 0.61400684 0.5999195  0.61018314 0.61239686] 0.6110349397653784
+ standard deviation:  0.006735031296820453
+  Variance:  4.536064656915099e-05
+ Confusion Matrix:  [[2720 4199]
+ [1689 6301]]
 
 #EN preliminary scores: log loss, mean squared error
 50 item:
 0.23733333333333334
 8.55436040435047
 Full set:
-0.3850023475752901
-13.876891170000164
+0.3866121134884969
+0.3866121134884969
+Confusion Matrix:  [[3489 3406]
+ [2358 5656]]
