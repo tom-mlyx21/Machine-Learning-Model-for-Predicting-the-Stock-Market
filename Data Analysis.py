@@ -2,6 +2,7 @@ import xgboost as xgb
 import pandas as pd
 import nltk
 import string
+
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from numpy.random import poisson
 from sklearn.ensemble import RandomForestClassifier
@@ -15,18 +16,25 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import roc_auc_score
+import matplotlib.pyplot as plt
+from sklearn.metrics import RocCurveDisplay
+from sklearn.inspection import permutation_importance
+
 
 import warnings
 
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
+from xgboost import plot_tree
 
 # Run on first use on new device
 '''nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 nltk.download('vader_lexicon')'''
+
+
 
 
 pd.options.mode.chained_assignment = None  # default='warn'
@@ -102,8 +110,8 @@ def frameBuilder(boundary):
             for y in range(boundary):
                 hold = sentiment_data[x][y]
                 if type(hold) == list:
-                    set = {'Source': hold[0], 'Length': hold[1], 'Word Count': hold[2], 'Positive': hold[3], 'Negative': hold[4], 'Neutral': hold[5], 'Compound': hold[6], 'Avg WordLen': int(hold[1]/hold[2]), 'UniGrams': int(hold[7]), 'BiGrams': int(hold[8]), 'TriGrams': int(hold[9]), 'Punctuation': int(hold[10]), 'Entities': int(hold[11]), 'Label': int(hold[12])}
-                    clean_data.loc[len(clean_data)] = set
+                    dataPoints = {'Source': hold[0], 'Length': hold[1], 'Word Count': hold[2], 'Positive': hold[3], 'Negative': hold[4], 'Neutral': hold[5], 'Compound': hold[6], 'Avg WordLen': int(hold[1] / hold[2]), 'UniGrams': int(hold[7]), 'BiGrams': int(hold[8]), 'TriGrams': int(hold[9]), 'Punctuation': int(hold[10]), 'Entities': int(hold[11]), 'Label': int(hold[12])}
+                    clean_data.loc[len(clean_data)] = dataPoints
     print("clean data is: ", clean_data)
     return clean_data
 
@@ -112,18 +120,28 @@ def modelTrainer(clean_data):
     model = input("Enter the model to be used for training (NB, XGB, RF, SVM, EN): ")
     X = clean_data[['Source', 'Length', 'Word Count', 'Positive', 'Negative', 'Neutral', 'Compound', 'Avg WordLen', 'UniGrams', 'BiGrams', 'TriGrams', 'Punctuation', 'Entities']]
     Y = clean_data['Label']
-    for x in range(10):
+    iterate = 1
+    if model == 'RF':
+        iterate = 10
+    for x in range(iterate):
         # Shuffle the data to remove any structural bias
         clean_data = clean_data.sample(frac=1).reset_index(drop=True)
         Xtrain, Xtest, Ytrain, Ytest = train_test_split(X,Y, test_size=.3, random_state=0)
         if model == 'NB':
             clf = GaussianNB()
+            clf.fit(Xtrain, Ytrain)
         elif model == 'XGB':
             clf = xgb.XGBClassifier()
+            clf.fit(Xtrain, Ytrain)
+            plot_tree(clf)
+            plt.show()
         elif model == 'RF':
             clf = RandomForestClassifier()
+            clf.fit(Xtrain, Ytrain)
+            # no plot_tree method for RF due to the ensemble nature
         elif model == 'SVM':
             clf = SVC(kernel='rbf', C=1, gamma='auto')
+            clf.fit(Xtrain, Ytrain)
         elif model == 'EN':
             # Ensemble classifier
             model_1 = GaussianNB()
@@ -137,14 +155,24 @@ def modelTrainer(clean_data):
             print(mean_squared_error(Ytest, pred_final))
             print(mean_absolute_error(Ytest, pred_final))
             print("Confusion Matrix: ", metrics.confusion_matrix(Ytest, pred_final))
-
+            print("\n classification report: ", metrics.classification_report(Ytest, pred_final))
         if model == 'NB' or model == 'XGB' or model == 'RF' or model == 'SVM':
             clf.fit(Xtrain, Ytrain)
             Ypred = clf.predict(Xtest)
-            print(classification_report(Ytest, Ypred))
             k_folds = KFold(n_splits=10)
             scores = cross_val_score(clf, X, Y, cv=k_folds)
             print(scores, scores.mean(), "\n standard deviation: ", scores.std(), "\n  Variance: ", scores.var(), "\n Confusion Matrix: ", metrics.confusion_matrix(Ytest, Ypred))
+            print("\n classification report: ", metrics.classification_report(Ytest, Ypred))
+            # Plot the ROC curve
+            ax = plt.gca()
+            clf_disp = RocCurveDisplay.from_estimator(clf, Xtest, Ytest, ax=ax, alpha=0.8)
+            clf_disp.plot(ax=ax, alpha=0.8)
+            plt.show()
+            # Plot the permutation importance
+            result = permutation_importance(clf, Xtest, Ytest, n_repeats=10, random_state=42, n_jobs=2)
+            sorted_idx = result.importances_mean.argsort()
+            plt.boxplot(result.importances[sorted_idx].T, vert=False, labels=Xtest.columns[sorted_idx])
+            plt.show()
 
         elif model != 'EN':
             print("Enter a Valid Model")
