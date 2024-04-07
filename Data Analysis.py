@@ -46,7 +46,7 @@ def trainData():
     for y in range(boundary):
         print("index:",  counter)
         for x in first_data.columns:
-            if x != 'Date':
+            if x != 'Date' and x != 'Label':
                 target = first_data[x][y]
                 hold = []
                 # Can't encode floats so only strings accepted (Loss of 1 in 250 ish entries)
@@ -83,6 +83,8 @@ def trainData():
                     hold.append(first_data.iloc[y]['Label'])
                     # The hold temporarily assumes all metrics taken about sentiment. Then passed on to the
                     sentiment_data.at[counter, x] = hold
+                else:
+                    print("Error: ", target)
         counter += 1
     return boundary
 

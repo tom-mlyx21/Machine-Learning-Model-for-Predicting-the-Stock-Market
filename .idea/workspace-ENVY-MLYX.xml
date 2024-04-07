@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ae7c7c08-19c5-4bc8-930b-abe4b6e8cacf" name="Changes" comment="Unproblematic bug fix">
+      <change afterPath="$PROJECT_DIR$/SentimentFile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sentiment Extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sentiment Extractor.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="78a9f0b9-6bc7-44d5-92d7-72777287b379" />
+        <option name="url" value="https://github.com/tom-mlyx21/Machine-Learning-Model-for-Predicting-the-Stock-Market.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2cPCtLISHJ0rwatFp6vy5iZcwLm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Model Controller.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Sentiment Extractor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Workspace.executor&quot;: &quot;Run&quot;,
+    &quot;Python.interp.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TomMl/OneDrive/Documents/University work/Computer Science/Machine-Learning-Model-for-Predicting-the-Stock-Market&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TomMl\OneDrive\Documents\University work\Computer Science\Machine-Learning-Model-for-Predicting-the-Stock-Market" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Machine-Learning-Model-for-Predicting-the-Stock-Market" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae7c7c08-19c5-4bc8-930b-abe4b6e8cacf" name="Changes" comment="" />
+      <created>1708004039626</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708004039626</updated>
+      <workItem from="1708004040670" duration="1915000" />
+      <workItem from="1708511590347" duration="3526000" />
+      <workItem from="1709055451215" duration="800000" />
+      <workItem from="1709154556983" duration="1465000" />
+      <workItem from="1709574985726" duration="3403000" />
+      <workItem from="1709588844330" duration="2435000" />
+      <workItem from="1709592893130" duration="705000" />
+      <workItem from="1709630694987" duration="6319000" />
+      <workItem from="1709728200687" duration="148000" />
+      <workItem from="1709728363758" duration="1358000" />
+      <workItem from="1709837001650" duration="860000" />
+      <workItem from="1709837890507" duration="3103000" />
+      <workItem from="1709905629572" duration="2099000" />
+      <workItem from="1710167815232" duration="4050000" />
+      <workItem from="1710172513927" duration="824000" />
+      <workItem from="1710173348675" duration="8098000" />
+      <workItem from="1710371311439" duration="157000" />
+    </task>
+    <task id="LOCAL-00001" summary="opening program + supporting files">
+      <created>1708511642566</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708511642566</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Sentiment anaylser 1">
+      <created>1708552968024</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708552968024</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Sentiment into new dataframe">
+      <created>1709155436211</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709155436211</updated>
+    </task>
+    <task id="LOCAL-00004" summary="First Large Data Run">
+      <created>1709593601868</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709593601868</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Three sets of results, with working validation methods (K-fold and .3 split)">
+      <created>1709646742522</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709646742522</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Unproblematic bug fix">
+      <option name="closed" value="true" />
+      <created>1710179195941</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710179195941</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Unproblematic bug fix">
+      <option name="closed" value="true" />
+      <created>1710179329541</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710179329541</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="opening program + supporting files" />
+    <MESSAGE value="Sentiment anaylser 1" />
+    <MESSAGE value="Sentiment into new dataframe" />
+    <MESSAGE value="First Large Data Run" />
+    <MESSAGE value="Three sets of results, with working validation methods (K-fold and .3 split)" />
+    <MESSAGE value="Unproblematic bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unproblematic bug fix" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Machine_Learning_Model_for_Predicting_the_Stock_Market$Sentiment_Extractor.coverage" NAME="Sentiment Extractor Coverage Results" MODIFIED="1708004822528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Machine_Learning_Model_for_Predicting_the_Stock_Market$Model_Controller.coverage" NAME="Model Controller Coverage Results" MODIFIED="1710178626935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Machine_Learning_Model_for_Predicting_the_Stock_Market$interp.coverage" NAME="interp Coverage Results" MODIFIED="1710173470536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
