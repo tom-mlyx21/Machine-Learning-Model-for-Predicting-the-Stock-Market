@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3) (preloaded format=pdflatex 2024.3.16)  4 APR 2024 10:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.3) (preloaded format=pdflatex 2024.3.16)  7 APR 2024 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -274,151 +274,151 @@ ed on input line 70.
 [7 <C:/Users/TomMl/Pictures/Screenshots/Data Raw.png> <C:/Users/TomMl/Pictures/
 Screenshots/Data_speech.png> <C:/Users/TomMl/Pictures/Screenshots/Data_comma.pn
 g>] [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 109--112
+Underfull \hbox (badness 10000) in paragraph at lines 113--116
 []\OT1/cmr/m/n/10.95 Kaggle Large Stock Mar-ket Dataset (2019)
  []
 
 
-Underfull \hbox (badness 3861) in paragraph at lines 115--118
+Underfull \hbox (badness 3861) in paragraph at lines 119--122
 []\OT1/cmr/m/n/10.95 News Sen-ti-ment Anal-y-sis for Stock Data by Com-pany (20
 21)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--118
+Underfull \hbox (badness 10000) in paragraph at lines 119--122
 \OT1/cmr/m/n/10.95 https://www.kaggle.com/datasets/sidarcidiacono/news-sentimen
 t-
  []
 
 
-Underfull \hbox (badness 4378) in paragraph at lines 120--123
+Underfull \hbox (badness 4378) in paragraph at lines 124--127
 []\OT1/cmr/m/n/10.95 Stock Mar-ket: His-tor-i-cal Data of Top 10 Com-pa-nies (2
 023)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--123
+Underfull \hbox (badness 10000) in paragraph at lines 124--127
 \OT1/cmr/m/n/10.95 https://www.kaggle.com/datasets/khushipitroda/stock-market-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--139
+Underfull \hbox (badness 10000) in paragraph at lines 139--143
 []\OT1/cmr/m/n/10.95 Sentiment Anal-y-sis and Vi-su-al-iza-tion of Stock News (
 2024)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--139
+Underfull \hbox (badness 10000) in paragraph at lines 139--143
 \OT1/cmr/m/n/10.95 https://github.com/TheCodex-Me/Projects/blob/master/Sentimen
 t-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--139
+Underfull \hbox (badness 10000) in paragraph at lines 139--143
 \OT1/cmr/m/n/10.95 Analysis-Stock-News-Final/main.py By The-Codex.com: Avi
  []
 
 
-Overfull \hbox (2.93211pt too wide) in paragraph at lines 141--145
+Overfull \hbox (2.93211pt too wide) in paragraph at lines 145--149
 []\OT1/cmr/m/n/10.95 Twitter Sen-ti-ment anal-y-sis (2022) https://github.com/R
 obMulla/twitch-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--145
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
 \OT1/cmr/m/n/10.95 stream-projects/blob/main/051-stock-sentiment/stock-sentimen
 t.ipynb
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--145
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
 \OT1/cmr/m/n/10.95 By Rob Mulla https://www.youtube.com/live/--rsVYmaHwg?si=-
  []
 
 
-Overfull \hbox (20.20761pt too wide) in paragraph at lines 153--156
+Overfull \hbox (20.20761pt too wide) in paragraph at lines 157--160
 []\OT1/cmr/m/n/10.95 NLTK vs spaCy (2022) https://www.kaggle.com/discussions/ge
 neral/299223
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--160
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
 []\OT1/cmr/m/n/10.95 Predicting the Stock Mar-ket Us-ing Ten-sor-Flow (2024)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--160
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
 \OT1/cmr/m/n/10.95 https://www.geeksforgeeks.org/stock-price-prediction-project
 -using-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--164
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 []\OT1/cmr/m/n/10.95 TensorFlow Li-braries and Ex-ten-sions (2024)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--168
+Underfull \hbox (badness 10000) in paragraph at lines 170--172
 []\OT1/cmr/m/n/10.95 Using LSTM's for Stock Mar-ket Pre-dic-tion (2018)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--168
+Underfull \hbox (badness 10000) in paragraph at lines 170--172
 \OT1/cmr/m/n/10.95 https://towardsdatascience.com/using-lstms-for-stock-market-
 
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 170--172
+Underfull \hbox (badness 4479) in paragraph at lines 174--176
 []\OT1/cmr/m/n/10.95 Pytorch vs Ten-sor-Flow: Which frame-work to choose (2023)
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 []\OT1/cmr/m/n/10.95 scikit-learn-vs-tensorflow-vs-pytorch-vs-keras
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 178--181
+Underfull \hbox (badness 10000) in paragraph at lines 182--185
 []\OT1/cmr/m/n/10.95 L1, L2 Reg-u-lar-iza-tion in XG-Boost re-gres-sion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--181
+Underfull \hbox (badness 10000) in paragraph at lines 182--185
 \OT1/cmr/m/n/10.95 https://albertum.medium.com/l1-l2-regularization-in-xgboost-
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--186
+Underfull \hbox (badness 10000) in paragraph at lines 187--190
 []\OT1/cmr/m/n/10.95 K fold cross val-i-da-tion tech-niques and its es-sen-tial
 s
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--186
+Underfull \hbox (badness 10000) in paragraph at lines 187--190
 \OT1/cmr/m/n/10.95 https://www.analyticsvidhya.com/blog/2022/02/k-fold-cross-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--191
+Underfull \hbox (badness 10000) in paragraph at lines 192--195
 []\OT1/cmr/m/n/10.95 sklearn model se-lec-tion kfold https://scikit-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--191
+Underfull \hbox (badness 10000) in paragraph at lines 192--195
 \OT1/cmr/m/n/10.95 learn.org/stable/modules/generated/sklearn.model se-lec-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--196
+Underfull \hbox (badness 10000) in paragraph at lines 197--200
 []\OT1/cmr/m/n/10.95 sklearn met-rics clas-si-fi-ca-tion re-port https://scikit
 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--196
+Underfull \hbox (badness 10000) in paragraph at lines 197--200
 \OT1/cmr/m/n/10.95 learn.org/stable/modules/generated/sklearn.metrics.classific
 ation
  []
@@ -448,7 +448,7 @@ ublic/amsfonts/cm/cmmi10.pfb><C:/Users/TomMl/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/TomMl/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/TomMl/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "Stock Market.pdf" (12 pages, 232305 bytes).
+Output written on "Stock Market.pdf" (12 pages, 233517 bytes).
 PDF statistics:
  78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

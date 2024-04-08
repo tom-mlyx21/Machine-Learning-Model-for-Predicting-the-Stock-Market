@@ -93,7 +93,11 @@ The implementation of all the classifiers will consist of validating the models 
 I have chosen to implement the design within the PyCharm IDE as it has excellent integration with python modules, and my experience using it makes this a comfortable choice. Further to that I will be using the most recent version of Python at the time, Python 3.12.
 
 \subsection{Data Processing}
+The implementation of the data processing steps were done in concurrency with the sentiment extraction steps, as this allowed for more efficient code, only working when needed. For instance, when converting a string to sentiment metrics, the program will first check that the string is of the correct type. To run an initial loop through the large set of data beforehand would be a great deal more inefficient, hence the approach to clean the data as it is used in the sentiment extraction phase.
 
+The first few instances of this occurring are during the extraction of n-grams, where each instance of a sentence is cleaned of possible tricky punctuation. Since the handling of this is done concurrently, it has been implemented with a couple of simple if statements.
+
+Second to that, during the extraction of the punctuation metric, a metric designed to simply count the number of punctuation characters, the number of speech marks have been ignored due to the inconsistencies in news headlines. This has arisen due to a large proportion of news headlines having over 3 sets of speech marks because of a translation error. The solution for this, although crude, was to ignore the speech marks, as they are ingrained in the initial data. 
 \subsection{Sentiment Extraction}
 
 \subsection{Machine Learner Models}

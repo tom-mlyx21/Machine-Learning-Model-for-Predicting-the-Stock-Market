@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {3}Pipeline Design}{7}{}%
 \contentsline {subsection}{\numberline {3.1}Data Preprocessing}{7}{}%
 \contentsline {subsection}{\numberline {3.2}Sentiment Extraction}{8}{}%
-\contentsline {subsection}{\numberline {3.3}Machine Modelling}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Machine Learner Modelling}{8}{}%
 \contentsline {section}{\numberline {4}Implementation}{10}{}%
 \contentsline {subsection}{\numberline {4.1}Developmental Choices}{10}{}%
 \contentsline {subsection}{\numberline {4.2}Data Processing}{10}{}%
