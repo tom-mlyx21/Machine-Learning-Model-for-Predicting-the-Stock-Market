@@ -60,7 +60,7 @@ def trainData():
                     sent = target.split()
                     uni, bi, tri = 0, 0, 0
                     for t in sent:
-                        if len(t) == 1 and t != "'" and t != '-' and t != '"':
+                        if len(t) == 1 and t != '-':
                             uni += 1
                         if len(t) == 2 and t != "--":
                             bi += 1
