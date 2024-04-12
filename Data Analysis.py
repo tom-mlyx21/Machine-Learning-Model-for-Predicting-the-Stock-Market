@@ -1,8 +1,11 @@
 import xgboost as xgb
 import pandas as pd
 import nltk
+import spacy
 import string
 
+
+from spacy import displacy
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
@@ -55,7 +58,7 @@ def trainData():
                     # Migrate the vader object to an array, to better suit pd
                     hold.append(counter)
                     hold.append(len(target))
-                    hold.append(target.count(' ') + 1)
+                    hold.append(len(nltk.word_tokenize(target)))
                     # totaling ngrams in text
                     sent = target.split()
                     uni, bi, tri = 0, 0, 0
@@ -79,7 +82,10 @@ def trainData():
                     hold.append(tri)
                     hold.append(punc)
                     # include the entity count in array
-                    hold.append(len(nltk.word_tokenize(target)))
+                    NER = spacy.load("en_core_web_sm")
+                    doc = NER(target)
+                    print("Entities: ", len(doc.ents), doc.ents)
+                    hold.append(len(doc.ents))
                     hold.append(first_data.iloc[y]['Label'])
                     # The hold temporarily assumes all metrics taken about sentiment. Then passed on to the
                     sentiment_data.at[counter, x] = hold
