@@ -84,7 +84,6 @@ def trainData():
                     # include the entity count in array
                     NER = spacy.load("en_core_web_sm")
                     doc = NER(target)
-                    print("Entities: ", len(doc.ents), doc.ents)
                     hold.append(len(doc.ents))
                     hold.append(first_data.iloc[y]['Label'])
                     # The hold temporarily assumes all metrics taken about sentiment. Then passed on to the
