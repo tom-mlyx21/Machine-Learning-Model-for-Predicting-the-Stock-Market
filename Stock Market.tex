@@ -3,7 +3,7 @@
 \author{Author: Tom Molyneux}
 \pagenumbering{arabic}
 \usepackage{graphicx}
-\graphicspath{{C:/Users/TomMl/Pictures/Screenshots}}
+\graphicspath{{C:/Users/TomMl/OneDrive/Documents/University work/Computer Science/Machine-Learning-Model-for-Predicting-the-Stock-Market/Image}}
 \usepackage[parfill]{parskip}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -57,7 +57,7 @@ PyTorch is a solid second choice for implementing machine learning to predict st
 From the majority of sources provided prior, sci-kit learn was recommended as the library of choice. This is due to it's inherent compatibility with other pythonic libraries such as NumPy, SciPy, Matplotlib, and pandas, all libraries that would be extremely useful to use. Compared to the other machine learning algorithms covered, Sci-Kit learn is an incredibly intuitive library, offering a much larger array of services, and operating at an efficiency comparable to PyTorch. Sci-Kit does not operate using hardware boosting techniques unlike TensorFlow. For these reasons and the abundant example projects to learn from, Sci-Kit seemed the best option out of the three main libraries I have reviewed.
 
 \section{Pipeline Design}
-\subsection{Data Preprocessing}
+\subsection{Data Processing}
 The aforementioned Kaggle Dataset provides a large quantity of data in the form of a csv file. This file contains the date, 25 headlines from different sources, and a label to indicate the movement of the stock market. This will be immediately formatted into a Pandas dataframe, with the purpose of being able to clean the data in such away that allows us to undergo effective sentiment extraction later on. This process will ensure that the file has been formatted correctly, Syntax inside the headlines has not confused Pandas, and ultimately we can address the data in a useful way via the inherited Pandas attributes.
 The original Kaggle Dataset look like this:
 \includegraphics[scale = 0.33]{Data Raw.png} 
@@ -95,12 +95,42 @@ I have chosen to implement the design within the PyCharm IDE as it has excellent
 \subsection{Data Processing}
 The implementation of the data processing steps were done in concurrency with the sentiment extraction steps, as this allowed for more efficient code, only working when needed. For instance, when converting a string to sentiment metrics, the program will first check that the string is of the correct type. To run an initial loop through the large set of data beforehand would be a great deal more inefficient, hence the approach to clean the data as it is used in the sentiment extraction phase.
 
+Due to the well used nature of the data, there were very little major considerations when cleaning the data. As a result of this the only real implementations were very small handlings of irregular strings.
 The first few instances of this occurring are during the extraction of n-grams, where each instance of a sentence is cleaned of possible tricky punctuation. Since the handling of this is done concurrently, it has been implemented with a couple of simple if statements.
-
-Second to that, during the extraction of the punctuation metric, a metric designed to simply count the number of punctuation characters, the number of speech marks have been ignored due to the inconsistencies in news headlines. This has arisen due to a large proportion of news headlines having over 3 sets of speech marks because of a translation error. The solution for this, although crude, was to ignore the speech marks, as they are ingrained in the initial data. 
+Second to that, during the extraction of the punctuation metric, a metric designed to simply count the number of punctuation characters, the number of speech marks have been handled due to the inconsistencies in news headlines. This has arisen due to a large proportion of news headlines having over 3 sets of speech marks because of a csv translation error, multiplying speech marks where quotation marks should be. The solution for this was not found in a piece of code but the use of excel to identify occurrences across the dataset and remove them using the replace function. This allowed me to clean the data of identified problems.
+\newpage
 \subsection{Sentiment Extraction}
+As previously outlined in the design phase of the document, the sentiment extraction section is the first real part of the project where the choices about how to instantiate the project are implemented. To begin with I had decided on using eight intuitive metrics (positive, negative, neutral, compound, ngrams, word count, length, punctuation. During implementation of these metrics it was decided that a further five can be included as complementary metrics. These were: Source, Average word length, Ngrams split into Uni Bi and Tri, and named entity count (Putin, Donald Trump, Russia, Queen Elizabeth). This therefore increased the dimensions of the final data set from 397,800 to 745,875, providing a better basis for training models on.
 
+The implementation of extracting the following values was made very simple through the use of NLTK Vader package. Extracting positive, negative, neutral, and a compound score for each headline was incredibly simple through the 
+SentimentIntensityAnalyzer().polarity scores() method
+Which when applied to a string of sentence like structure will apply a Naive Bayes sentiment extractor model and calculate accurate scores. These scores will provide us a with a set of values that are intuitively valuable to predicting movements in the stock market. We will review their performance later on.
+
+There were then a number of much simpler auxiliary values that I had decided to include during the design phase. Average word length was a very simple metric to instantiate. Count the number of words using the NLTK tokenizer and divide this by the length of the string. This was chosen due to the insight it gives into if headlines use longer or shorter words during better or worse times for the stock market.
+
+Source was a similarly simple metric to include, and i could perhaps be blamed for overlooking it as a metric during the design phase. This was due to only considering "metrics" in a mathematical scoring sense, however reviewing a few of the similar projects mentioned above, using the source seems to drastically help learners later on. This was again simple enough to implement as the dataset splits each headline by the producer. Although the nature of the source does not give names, like "The Sun" or "The Daily Mail", It provides a number from 1-25 depending on the source, which for training a learning model will work as intended.    
+
+The counting of N-grams was implemented very simply as well, simply counting the number of 1, 2 , and 3 character words that appear in a sentence. The only problem solving required during this implementation was the handling of anomalies in punctuation. After running the first iterations of the program I noticed that some headlines included punctuation like "--" or "-" that shouldn't be included in the metrics. Simple if statement ensured that this was sorted, and the N-gram metric was included.
+
+Finally, I have included an entity metric. This was chosen due to a number of similar projects using an "objectivity score", however since I am already utilising polarity metrics, which act in a very similar way, I chose to adapt this choice and implement entity recognition instead. Entities as described are just tangible things, like a country, person, or building. This should provide a metric in which news headlines can be recognised as having high objectivity or low objectivity. This could be interpreted as an attempt to mitigate news headlines that are in other words "Waffle", or are large but don't say a great deal. This has been implemented using the spaCy package, which allows for intuitive implementation and efficient counting of entities. The $spacy.load('en\_core\_web\_sm')$ download allows the program to understand and classify entities using a "small English pipeline"\cite{Spacy}.
+Implemented using the help found online \cite{Spacy2}.
+
+Considering these metrics and their implementation, you may be inclined to think of a number yourself that have not been included. There were quite a few that had been considered during the implementation phase, none more than a time metric which would act as an index. Intuitively this metric would be excellent, providing a scale that allows a learner to understand the development of a stock through time. In other words this could potentially allow a learner to understand that trends may be clustered, following good and bad periods. Due to the nature of the data however, this is not quite possible. If each headline is given an index metric, then 24 other headlines will share the same index and the same outcome. Any learner would quickly learn the structure that identifying one label and one index is the best way to predict future cases. This would create the illusion of an extremely accurate model, but in reality it would be a blunder of design.
+
+
+\newpage
 \subsection{Machine Learner Models}
+As discussed in the design section, I have chosen to implement four main classifiers (Naive Bayes, Random Forest, SVM with a radial basis function, and XGboost) in order to cover a range of approaches and divine the best classifier. However, during my mid project presentation, post design phase, it was suggested by Dr Richard Jensen that I use an ensemble classifier in conjunction with the ones i have already chosen. The benefit of this being that the classification error is mitigated by other classifier and the scores of each classifier averaged as its own. In the same way that a random forest classifier is an ensemble classifier, but with the same classification model, I have pursued this path by choosing to also implement an ensemble classifier that combines all other classifiers i have chosen to implement. This was accomplished through existing sklearn libraries.
+
+For all classifier models excluding the ensemble classifier, the approach to training and testing data was identical 
+\begin{enumerate}
+\item The data is shuffled to remove any structure
+\item The data is split 70:30 (training:testing)
+\item The selected model is trained
+\item K-fold cross validation occurs with 10 folds
+\item Classifier performance is evaluated through the output of graphs, confusion matrices, and metrics
+\end{enumerate}
+Due to the nature of the ensemble classifier, the process is nearly identical with the exception of certain visuals and performance metrics. 
 
 
 
@@ -157,7 +187,6 @@ Stock Market Analysis Using Machine Learning and Python
 NLTK vs spaCy  (2022)
 https://www.kaggle.com/discussions/general/299223
 By Kartik Guar
-
 \bibitem{TensorFlow}
 Predicting the Stock Market Using TensorFlow (2024)
 https://www.geeksforgeeks.org/stock-price-prediction-project-using-tensorflow/
@@ -197,6 +226,15 @@ by sklearn documentation
 sklearn metrics classification report
 https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification report.html
 by sklearn documentation
+
+\bibitem{Spacy}
+Trained Models and Pipelines 
+https://spacy.io/models
+
+\bibitem{Spacy2}
+Named Entity Recognition (NER) in python with Spacy
+https://www.analyticsvidhya.com/blog/2021/06/nlp-application-named-entity-recognition-ner-in-python-with-spacy/
+by Prateek Majumder
 
 \end{thebibliography}
 \end{document}
