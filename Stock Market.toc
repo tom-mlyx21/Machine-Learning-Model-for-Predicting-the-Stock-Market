@@ -12,3 +12,4 @@
 \contentsline {subsection}{\numberline {4.2}Data Processing}{10}{}%
 \contentsline {subsection}{\numberline {4.3}Sentiment Extraction}{11}{}%
 \contentsline {subsection}{\numberline {4.4}Machine Learner Models}{13}{}%
+\contentsline {subsubsection}{\numberline {4.4.1}Metrics, Matrices, and Visuals}{13}{}%
