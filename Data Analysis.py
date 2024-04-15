@@ -26,6 +26,7 @@ from xgboost import plot_tree
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 nltk.download('vader_lexicon')'''
+NER = spacy.load("en_core_web_sm")
 
 
 pd.options.mode.chained_assignment = None  # default='warn'
@@ -82,7 +83,6 @@ def trainData():
                     hold.append(tri)
                     hold.append(punc)
                     # include the entity count in array
-                    NER = spacy.load("en_core_web_sm")
                     doc = NER(target)
                     hold.append(len(doc.ents))
                     hold.append(first_data.iloc[y]['Label'])

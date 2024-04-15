@@ -130,9 +130,21 @@ For all classifier models excluding the ensemble classifier, the approach to tra
 \item K-fold cross validation occurs with 10 folds
 \item Classifier performance is evaluated through the output of graphs, confusion matrices, and metrics
 \end{enumerate}
-Due to the nature of the ensemble classifier, the process is nearly identical with the exception of certain visuals and performance metrics. 
+Due to the nature of the ensemble classifier, the process is nearly identical with the exception of no.5 (certain visuals and performance metrics) but the process remains largely the same.
 
+\subsubsection{Metrics, Matrices, and Visuals}
+For all non ensemble classifiers, once the model has been trained and 10-fold cross validation has been undergone, the tools that have been chosen to give the best representation and understanding of performance are:
 
+Result Ratio: which gives us the initial split of positive and negative results in the dataset. This is largely important due to the reality that if the data is split 70:30, and I have a model that guesses True 100\% of the time, then we will understand why a model with "70\% accuracy" is actually an extremely poor classifier. In all cases the data split is around 56:44 (positive:negative) therefore setting a benchmark for any model that has accuracy of above 56\% is worth consideration.
+
+K-fold scores and Mean: will return the 10 k-fold validation scores that each section of the model has produced. Alongside this will be the mean k-fold score, giving a good indication of how accurate the model is as an average.
+
+Standard Deviation and Variance: The standard deviation of a classifier will give us a 1-0 score on how divergent the scores are from the mean. This will provide an intuitive score on how well grouped or precise a classifier may be. As for variance, this score is not a measure of overall accuracy but indicates well over fitting within a classifier. High variance indicates a classifier has learned specific patterns and does not generalise unseen data well. For binary classifiers like the ones trained in this project, variance is not as useful as in other cases, but will still be included for reference.
+
+Confusion Matrix:
+A simple tool in practice, the confusion matrix allows for a useful insight into the classification capabilities of a classifier. Since we can observe a breakdown in the classification choices of our models, the confusion matrix mainly allows us to determine under which conditions the classifier acts the best. For instance if our classifier has an overall predictive accuracy of 60\%, we do not know how accurate the model is for true positives, true negatives, false positives, and false negatives. The effect of this is that the confusion matrix allows us to determine how good our model is at predicting positive and negative results comparatively.
+
+Classification report:
 
 
 
