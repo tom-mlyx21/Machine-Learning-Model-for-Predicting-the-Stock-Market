@@ -86,7 +86,7 @@ def trainData():
                     doc = NER(target)
                     hold.append(len(doc.ents))
                     hold.append(first_data.iloc[y]['Label'])
-                    # The hold temporarily assumes all metrics taken about sentiment. Then passed on to the
+                    # The hold temporarily assumes all metrics taken about sentiment. Then passed on to the final set
                     sentiment_data.at[counter, x] = hold
                 else:
                     print("Error: ", target)
