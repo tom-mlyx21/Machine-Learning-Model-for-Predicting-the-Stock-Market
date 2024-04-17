@@ -115,7 +115,7 @@ The counting of N-grams was implemented very simply as well, simply counting the
 Finally, I have included an entity metric. This was chosen due to a number of similar projects using an "objectivity score", however since I am already utilising polarity metrics, which act in a very similar way, I chose to adapt this choice and implement entity recognition instead. Entities as described are just tangible things, like a country, person, or building. This should provide a metric in which news headlines can be recognised as having high objectivity or low objectivity. This could be interpreted as an attempt to mitigate news headlines that are in other words "Waffle", or are large but don't say a great deal. This has been implemented using the spaCy package, which allows for intuitive implementation and efficient counting of entities. The $spacy.load('en\_core\_web\_sm')$ download allows the program to understand and classify entities using a "small English pipeline"\cite{Spacy}.
 Implemented using the help found online \cite{Spacy2}.
 
-Considering these metrics and their implementation, you may be inclined to think of a number yourself that have not been included. There were quite a few that had been considered during the implementation phase, none more than a time metric which would act as an index. Intuitively this metric would be excellent, providing a scale that allows a learner to understand the development of a stock through time. In other words this could potentially allow a learner to understand that trends may be clustered, following good and bad periods. Due to the nature of the data however, this is not quite possible. If each headline is given an index metric, then 24 other headlines will share the same index and the same outcome. Any learner would quickly learn the structure that identifying one label and one index is the best way to predict future cases. This would create the illusion of an extremely accurate model, but in reality it would be a blunder of design.
+Considering these metrics and their implementation, you may be inclined to think of a number yourself that have not been included. There were quite a few that had been considered during the implementation phase, none more than a time metric which would act as an index. Intuitively this metric would be excellent, providing a scale that allows a learner to understand the development of a stock through time. In other words this could potentially allow a learner to understand that trends may be clustered, following good and bad periods. Due to the nature of the data however, this is not quite possible. If each headline is given an index metric, then 24 other headlines will share the same index and the same outcome. A learner may learn the structure that identifying one label and one index is the best way to predict future cases. This would create the illusion of an extremely accurate model, but in reality it would be a blunder of design.
 
 
 \newpage
@@ -144,12 +144,34 @@ Standard Deviation and Variance: The standard deviation of a classifier will giv
 Confusion Matrix:
 A simple tool in practice, the confusion matrix allows for a useful insight into the classification capabilities of a classifier. Since we can observe a breakdown in the classification choices of our models, the confusion matrix mainly allows us to determine under which conditions the classifier acts the best. For instance if our classifier has an overall predictive accuracy of 60\%, we do not know how accurate the model is for true positives, true negatives, false positives, and false negatives. The effect of this is that the confusion matrix allows us to determine how good our model is at predicting positive and negative results comparatively.
 
-Classification report:
+Classification report: compiles a variety of information metrics, based upon the two directions of movement (1 and 0). The main metrics being: precision, recall, f1-score, and support.
+Precision simply provides the percentage accuracy of a model predicting the correct outcome (1 62\% means 62\% of the time the model classified the outcome 1 correctly). Precision does not take into account false negatives, so recall is used to balance this downfall.
+Recall is the measure of how often a machine model predicts positive instances. Defined by the equation $Recall = \frac{TruePositive}{TruePositive+FalseNegative}$ ,taking into account both true positives and false negatives. Precision is a measure of positive classifications, whereas recall is a measure of all positive instances(classified correctly or not).\\
+The F1 score is a metric based on the recall and precision. It is defined by the equation $f1 = 2 \frac{precision\cdot recall}{precision + recall}$ and represents the harmonic mean between precision and recall. Since this metric combines two other metrics, for our purposes it does not need to be considered a great deal, it looses the depth in understanding that precision and recall give us.\\
+Finally, the support tells us how many instances of each class there were, elaborating on the previously provided metric that outlines the ratio of both.
+
+\section{Results and Interpretation}
+
 
 
 
 \newpage
+\section{Appendix}
+\appendix
+\subsection{Naive Bayes Results}
+\includegraphics[scale = 0.8]{NB Result.png}
+\subsection{XGBoost Results}
+\includegraphics[scale = 0.79]{XGB Result.png}
+\subsection{Random Forest Results}
+\includegraphics[scale = 0.79]{RF Result1.png}
+\includegraphics[scale = 0.79]{RF Result2.png}
+\subsection{SVM Result}
+\includegraphics[scale = 0.79]{SVM Result.png}
+
+
+\newpage
 \begin{thebibliography}{9}
+
 
 \bibitem{kaggleMain}
 Kaggle Large Stock Market Dataset (2019)
