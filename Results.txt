@@ -58,29 +58,14 @@ SVM Results:
     accuracy                           0.61     14909
    macro avg       0.61      0.59      0.58     14909
 weighted avg       0.61      0.61      0.59     14909
-SVM Results:
-[0.60784708 0.60905433 0.61790744 0.62313883 0.60764588 0.61066398
- 0.61722681 0.62467297 0.61923928 0.61682431] 0.6154220918183684
- standard deviation:  0.005934107964025576
-  Variance:  3.521363732871176e-05
- Confusion Matrix:  [[2687 4208]
- [1659 6355]]
+Ensemble Results:
+0.37923401971963244
+0.37923401971963244
+Confusion Matrix:  [[3426 3469]
+ [2185 5829]]
  classification report:                precision    recall  f1-score   support
-           0       0.62      0.39      0.48      6895
-           1       0.60      0.79      0.68      8014
-    accuracy                           0.61     14909
-   macro avg       0.61      0.59      0.58     14909
-weighted avg       0.61      0.61      0.59     14909
-SVM Results:
-[0.60784708 0.60905433 0.61790744 0.62313883 0.60764588 0.61066398
- 0.61722681 0.62467297 0.61923928 0.61682431] 0.6154220918183684
- standard deviation:  0.005934107964025576
-  Variance:  3.521363732871176e-05
- Confusion Matrix:  [[2687 4208]
- [1659 6355]]
- classification report:                precision    recall  f1-score   support
-           0       0.62      0.39      0.48      6895
-           1       0.60      0.79      0.68      8014
-    accuracy                           0.61     14909
-   macro avg       0.61      0.59      0.58     14909
-weighted avg       0.61      0.61      0.59     14909
+           0       0.61      0.50      0.55      6895
+           1       0.63      0.73      0.67      8014
+    accuracy                           0.62     14909
+   macro avg       0.62      0.61      0.61     14909
+weighted avg       0.62      0.62      0.62     14909
